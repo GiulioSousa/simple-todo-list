@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <h1>To-Do List</h1>
+    <form id="task-form">
+        <div class="form-field">
+            <label class="form-label" for="task-date">Data:</label>
+            <input class="form-input" type="date" id="task-date" required>
+        </div>
+        <div class="form-field">
+            <label class="form-label" for="task-description">Descrição:</label>
+            <input class="form-input" type="text" id="task-description" required>
+        </div>
+        <div class="form-field">
+            <label class="form-label" for="task-status">Status:</label>
+            <select id="task-status">
+                <option value="Em Andamento">Em Andamento</option>
+                <option value="Concluída">Concluída</option>
+            </select>
+        </div>
+        <button type="submit">Adicionar Tarefa</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Descrição</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="task-list">
+        </tbody>
+    </table>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
