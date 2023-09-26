@@ -8,6 +8,7 @@ taskForm.addEventListener('submit', e => {
     if (!table.classList.contains('table--active')) {
         table.classList.add('table--active')
     }
+    
     const data = getFormData(taskForm)
     const newRow = taskList.insertRow()
 
@@ -25,19 +26,16 @@ taskForm.addEventListener('submit', e => {
 }) 
 
 function getFormData(formData) {
-    let task = {
+    return {
         date: formatDate(formData.date.value),
         description: formData.description.value,
         status: formData.status.value
     }
-
-    return task
 }
 
 function formatDate (date) {
     const arrayDate = date.split('-')
-    const formattedDate = `${arrayDate[2]}-${arrayDate[1]}-${arrayDate[0]}`
-    return formattedDate
+    return `${arrayDate[2]}-${arrayDate[1]}-${arrayDate[0]}`
 }
 
 function deleteTask(button) {
@@ -46,5 +44,4 @@ function deleteTask(button) {
     if (taskList.rows.length == 0) {
         table.classList.remove('table--active')
     }
-    return showTable()
 }
