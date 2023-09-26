@@ -1,9 +1,13 @@
 const taskForm = document.getElementById('task-form')
 const taskList = document.getElementById('task-list')
+const table = taskList.parentNode
 
 taskForm.addEventListener('submit', e => {
     e.preventDefault()
 
+    if (!table.classList.contains('table--active')) {
+        table.classList.add('table--active')
+    }
     const data = getFormData(taskForm)
     const newRow = taskList.insertRow()
 
@@ -38,5 +42,9 @@ function formatDate (date) {
 
 function deleteTask(button) {
     const row = button.parentNode.parentNode
-    return taskList.deleteRow(row.rowIndex - 1)
+    taskList.deleteRow(row.rowIndex - 1)
+    if (taskList.rows.length == 0) {
+        table.classList.remove('table--active')
+    }
+    return showTable()
 }
